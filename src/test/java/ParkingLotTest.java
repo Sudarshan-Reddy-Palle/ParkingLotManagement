@@ -6,14 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
     public class ParkingLotTest {
         private ParkingLot parkingLot;
 
-//    @BeforeEach
-//    void setUp() {
-//        parkingLot = new ParkingLot();
-//    }
-
         @Test
         void shouldReturnYesWhenAvailableIs4() {
-            parkingLot = new ParkingLot(4);
+            int input = 4;
+            parkingLot = new ParkingLot(input);
 
             String actualResult = parkingLot.parkACar();
 
@@ -22,16 +18,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
         @Test
         void shouldFailToReturnNoWhenAvailableIs3() {
-            parkingLot = new ParkingLot(3);
+            int input = 3;
+            parkingLot = new ParkingLot(input);
 
             String actualResult = parkingLot.parkACar();
 
-            assertEquals("No",actualResult);
+            assertEquals("Yes",actualResult);
         }
 
         @Test
         void shouldReturnNoWhenAvailableIs0() {
-            parkingLot = new ParkingLot(0);
+            int input = 0;
+            parkingLot = new ParkingLot(input);
 
             String actualResult = parkingLot.parkACar();
 
