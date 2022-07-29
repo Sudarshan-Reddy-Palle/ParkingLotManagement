@@ -9,5 +9,8 @@
         <module name="ParkingLotManagement" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ParkingLotManagement" target="18" />
+    </bytecodeTargetLevel>
   </component>
 </project>
