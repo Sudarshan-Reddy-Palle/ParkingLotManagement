@@ -1,41 +1,39 @@
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    public class ParkingLotTest {
-        private ParkingLot parkingLot;
+public class ParkingLotTest {
+    private ParkingLot parkingLot;
 
-//    @BeforeEach
-//    void setUp() {
-//        parkingLot = new ParkingLot();
-//    }
+    @BeforeEach
+    void setUp() {
+        parkingLot = new ParkingLot(4);
+    }
 
-        @Test
-        void shouldReturnYesWhenAvailableIs4() {
-            parkingLot = new ParkingLot(4);
+    @Test
+    void shouldReturnNoWhenAvailableSlotsAre0() {
+        int occupiedSlots = 4;
 
-            String actualResult = parkingLot.parkACar();
-
-            assertEquals("Yes",actualResult);
+        for(int i=0;i<occupiedSlots;i++){
+            parkingLot.park();
         }
+        String canBeParked = parkingLot.checkForParking();
 
-        @Test
-        void shouldFailToReturnNoWhenAvailableIs3() {
-            parkingLot = new ParkingLot(3);
+        assertEquals("No",canBeParked);
+    }
 
-            String actualResult = parkingLot.parkACar();
+    @Test
+    void shouldReturnYesWhenAvailableSlotsAre1() {
+        int occupiedSlots = 3;
 
-            assertEquals("No",actualResult);
+        for(int i=0;i<occupiedSlots;i++){
+            parkingLot.park();
         }
+        String canBeParked = parkingLot.checkForParking();
 
-        @Test
-        void shouldReturnNoWhenAvailableIs0() {
-            parkingLot = new ParkingLot(0);
-
-            String actualResult = parkingLot.parkACar();
-
-            assertEquals("No",actualResult);
-        }
+        assertEquals("Yes",canBeParked);
+    }
 }
 

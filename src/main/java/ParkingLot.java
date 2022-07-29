@@ -1,15 +1,18 @@
 public class ParkingLot {
-    int parkingSlots;
+    int parkingSlotsAvailable;
 
-    ParkingLot(int avaialableSlots)
+    ParkingLot(int totalSlots)
     {
-        this.parkingSlots = avaialableSlots;
+        this.parkingSlotsAvailable = totalSlots;
     }
 
-    public String parkACar()
+    public void park(){
+        parkingSlotsAvailable -= 1;
+    }
+
+    public String checkForParking()
     {
-        if(parkingSlots>0) {
-            parkingSlots -= 1;
+        if(parkingSlotsAvailable >0) {
             return "Yes";
         }
         return "No";
