@@ -2,38 +2,79 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
     private ParkingLot parkingLot;
 
-    @BeforeEach
-    void setUp() {
-        parkingLot = new ParkingLot(4);
+
+    @Test
+    void shouldParkTheCarWhenSlotIsAvailable() {
+        int availableSlots = 2;
+        parkingLot = new ParkingLot(availableSlots);
+
+        Boolean canBeParked = parkingLot.checkIfSlotAvailable();
+
+        assertTrue(canBeParked);
     }
 
     @Test
-    void shouldReturnNoWhenAvailableSlotsAre0() {
-        int occupiedSlots = 4;
+    void shouldNotParkTheCarWhenSlotIsUnavailable() {
+        int availableSlots = 0;
+        parkingLot = new ParkingLot(availableSlots);
 
-        for(int i=0;i<occupiedSlots;i++){
-            parkingLot.park();
-        }
-        String canBeParked = parkingLot.checkForParking();
+        Boolean canBeParked = parkingLot.checkIfSlotAvailable();
 
-        assertEquals("No",canBeParked);
+        assertFalse(canBeParked);
     }
 
     @Test
-    void shouldReturnYesWhenAvailableSlotsAre1() {
-        int occupiedSlots = 3;
+    void shouldAllowToUnParkTheCarIfItIsAlreadyParked() {
+        int availableSlots = 2;
+        parkingLot = new ParkingLot(availableSlots);
+        Vehicle myCar = new Vehicle();
 
-        for(int i=0;i<occupiedSlots;i++){
-            parkingLot.park();
+        if(parkingLot.checkIfSlotAvailable()){
+            parkingLot.park(myCar);
         }
-        String canBeParked = parkingLot.checkForParking();
 
-        assertEquals("Yes",canBeParked);
+        Boolean unParkStatus = parkingLot.unPark(myCar);
+        assertTrue(unParkStatus);
+    }
+
+    @Test
+    void shouldNotAllowToUnParkTheCarBeforeParkingIt() {
+        int availableSlots = 2;
+        parkingLot = new ParkingLot(availableSlots);
+        Vehicle myCar = new Vehicle();
+
+        Boolean unParkStatus = parkingLot.unPark(myCar);
+        assertFalse(unParkStatus);
+    }
+
+    @Test
+    void shouldReturnTrueIfParkingLotIsFull() {
+        int availableSlots = 2;
+        parkingLot = new ParkingLot(availableSlots);
+        for (int i = 0; i < 2; i++) {
+            parkingLot.park(new Vehicle());
+        }
+
+        Boolean isParkingLotFull = parkingLot.checkIfParkingLotIsFull();
+
+        assertTrue(isParkingLotFull);
+    }
+
+    @Test
+    void shouldReturnFalseIfParkingLotIsNotFull() {
+        int availableSlots = 3;
+        parkingLot = new ParkingLot(availableSlots);
+        for (int i = 0; i < 2; i++) {
+            parkingLot.park(new Vehicle());
+        }
+
+        Boolean isParkingLotFull = parkingLot.checkIfParkingLotIsFull();
+
+        assertFalse(isParkingLotFull);
     }
 }
-
