@@ -13,9 +13,9 @@ public class ParkingLotTest {
         int availableSlots = 2;
         parkingLot = new ParkingLot(availableSlots);
 
-        Boolean canBeParked = parkingLot.checkIfSlotAvailable();
+        Boolean isParked = parkingLot.park(new Vehicle());
 
-        assertTrue(canBeParked);
+        assertTrue(isParked);
     }
 
     @Test
@@ -23,9 +23,9 @@ public class ParkingLotTest {
         int availableSlots = 0;
         parkingLot = new ParkingLot(availableSlots);
 
-        Boolean canBeParked = parkingLot.checkIfSlotAvailable();
+        Boolean isParked = parkingLot.park(new Vehicle());
 
-        assertFalse(canBeParked);
+        assertFalse(isParked);
     }
 
     @Test
@@ -33,13 +33,11 @@ public class ParkingLotTest {
         int availableSlots = 2;
         parkingLot = new ParkingLot(availableSlots);
         Vehicle myCar = new Vehicle();
+        parkingLot.park(myCar);
 
-        if(parkingLot.checkIfSlotAvailable()){
-            parkingLot.park(myCar);
-        }
+        Boolean isUnParked = parkingLot.unPark(myCar);
 
-        Boolean unParkStatus = parkingLot.unPark(myCar);
-        assertTrue(unParkStatus);
+        assertTrue(isUnParked);
     }
 
     @Test
@@ -48,8 +46,9 @@ public class ParkingLotTest {
         parkingLot = new ParkingLot(availableSlots);
         Vehicle myCar = new Vehicle();
 
-        Boolean unParkStatus = parkingLot.unPark(myCar);
-        assertFalse(unParkStatus);
+        Boolean isUnParked = parkingLot.unPark(myCar);
+
+        assertFalse(isUnParked);
     }
 
     @Test

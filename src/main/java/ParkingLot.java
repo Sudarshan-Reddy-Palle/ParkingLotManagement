@@ -11,14 +11,9 @@ public class ParkingLot {
     }
 
     public Boolean park(Vehicle vehicle){
-        parkingSlotsAvailable -= 1;
-        parkingSlots.add(vehicle);
-        return true;
-    }
-
-    public Boolean checkIfSlotAvailable()
-    {
         if(parkingSlotsAvailable >0) {
+            parkingSlotsAvailable -= 1;
+            parkingSlots.add(vehicle);
             return true;
         }
         return false;
