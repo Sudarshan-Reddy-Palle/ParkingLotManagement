@@ -1,5 +1,3 @@
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -128,5 +126,24 @@ public class ParkingLotTest {
 
         assertTrue(isParked);
         assertFalse(securityPersonnal.checkIfParkingLotIsFull());
+    }
+
+    @Test
+    void notifyOwnerWhenSlotsAreBackAvailable() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Owner owner = new Owner();
+        owner.setParkingLot(parkingLot);
+        owner.subscribe();
+        Vehicle myCar = new Vehicle();
+
+        boolean isParked = parkingLot.park(myCar);
+        boolean notifiedOwnerWhenLotIsFull = owner.checkIfParkingLotIsFull();
+        boolean isUnParked = parkingLot.unPark(myCar);
+        boolean notifiedOwnerWhenLotIsBackAvailable = owner.checkIfParkingLotIsAvailable();
+
+        assertTrue(isParked);
+        assertTrue(notifiedOwnerWhenLotIsFull);
+        assertTrue(isUnParked);
+        assertTrue(notifiedOwnerWhenLotIsBackAvailable);
     }
 }

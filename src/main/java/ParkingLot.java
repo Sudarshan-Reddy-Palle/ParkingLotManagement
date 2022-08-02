@@ -16,16 +16,12 @@ public class ParkingLot {
         observers.add(observer);
     }
 
-    public void detach(Observer observer){
-        observers.remove(observer);
-    }
-
     public Boolean park(Vehicle vehicle){
         if(parkingSlotsAvailable >0) {
             parkingSlotsAvailable -= 1;
             parkingSlots.add(vehicle);
             if(parkingSlotsAvailable==0){
-                notifyAllObservers();
+                notifyAllObserversLotIsFull();
             }
             return true;
         }
@@ -34,15 +30,24 @@ public class ParkingLot {
     }
 
     public Boolean unPark(Vehicle vehicle){
-        parkingSlotsAvailable += 1;
         if(parkingSlots.contains(vehicle)){
+            if(parkingSlotsAvailable==0){
+                notifyAllObserversSlotsAreBackAvailable();
+            }
+            parkingSlotsAvailable += 1;
             parkingSlots.remove(vehicle);
             return true;
         }
         return false;
     }
 
-    public void notifyAllObservers(){
+    private void notifyAllObserversSlotsAreBackAvailable() {
+        for (Observer observer : observers) {
+            observer.notifyParkingLotIsBackAvailable();
+        }
+    }
+
+    public void notifyAllObserversLotIsFull(){
         for (Observer observer : observers) {
             observer.notifyParkingLotIsFull();
         }
@@ -50,18 +55,9 @@ public class ParkingLot {
 
     public Boolean checkIfParkingLotIsFull(){
         if(parkingSlotsAvailable==0){
-            notifyAllObservers();
+            notifyAllObserversLotIsFull();
             return true;
         }
         return false;
     }
-
-//    public static void main(String[] args)
-//    {
-//        ParkingLot parkingLot = new ParkingLot(1);
-//        Vehicle myCar = new Vehicle();
-//        Owner owner = new Owner(parkingLot);
-//        SecurityPersonnal securityPersonnal = new SecurityPersonnal(parkingLot);
-//        parkingLot.park(myCar);
-//    }
 }

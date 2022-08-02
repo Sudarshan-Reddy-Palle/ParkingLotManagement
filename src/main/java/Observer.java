@@ -1,3 +1,5 @@
 interface Observer {
-    public void notifyParkingLotIsFull();
+    void notifyParkingLotIsFull();
+
+    void notifyParkingLotIsBackAvailable();
 }
