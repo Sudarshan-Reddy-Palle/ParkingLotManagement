@@ -76,4 +76,57 @@ public class ParkingLotTest {
 
         assertFalse(isParkingLotFull);
     }
+
+    @Test
+    void notifyOwnerWhenParkingLotIsFull() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Owner owner = new Owner();
+        owner.setParkingLot(parkingLot);
+        owner.subscribe();
+
+        boolean isParked = parkingLot.park(new Vehicle());
+
+        assertTrue(isParked);
+        assertTrue(owner.checkIfParkingLotIsFull());
+
+    }
+
+    @Test
+    void notNotifyOwnerWhenParkingLotIsFree() {
+        ParkingLot parkingLot = new ParkingLot(2);
+        Owner owner = new Owner();
+        owner.setParkingLot(parkingLot);
+        owner.subscribe();
+
+        boolean isParked = parkingLot.park(new Vehicle());
+
+        assertTrue(isParked);
+        assertFalse(owner.checkIfParkingLotIsFull());
+    }
+
+    @Test
+    void notifySecurityPersonnalWhenLotIsFull() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        SecurityPersonnal securityPersonnal = new SecurityPersonnal();
+        securityPersonnal.setParkingLot(parkingLot);
+        securityPersonnal.subscribe();
+
+        boolean isParked = parkingLot.park(new Vehicle());
+
+        assertTrue(isParked);
+        assertTrue(securityPersonnal.checkIfParkingLotIsFull());
+    }
+
+    @Test
+    void notNotifySecurityPersonnalWhenLotIsFree() {
+        ParkingLot parkingLot = new ParkingLot(2);
+        SecurityPersonnal securityPersonnal = new SecurityPersonnal();
+        securityPersonnal.setParkingLot(parkingLot);
+        securityPersonnal.subscribe();
+
+        boolean isParked = parkingLot.park(new Vehicle());
+
+        assertTrue(isParked);
+        assertFalse(securityPersonnal.checkIfParkingLotIsFull());
+    }
 }
