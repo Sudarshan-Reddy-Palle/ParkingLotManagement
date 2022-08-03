@@ -1,11 +1,12 @@
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 public class ParkingLotTest {
     private ParkingLot parkingLot;
-
 
     @Test
     void shouldParkTheCarWhenSlotIsAvailable() {
@@ -54,9 +55,9 @@ public class ParkingLotTest {
     void shouldReturnTrueIfParkingLotIsFull() {
         int availableSlots = 2;
         parkingLot = new ParkingLot(availableSlots);
-        for (int i = 0; i < 2; i++) {
-            parkingLot.allocateParkingSlot(new Vehicle());
-        }
+
+        parkingLot.allocateParkingSlot(new Vehicle());
+        parkingLot.allocateParkingSlot(new Vehicle());
 
         Boolean isParkingLotFull = parkingLot.checkIfParkingLotIsFull();
 
@@ -67,126 +68,112 @@ public class ParkingLotTest {
     void shouldReturnFalseIfParkingLotIsNotFull() {
         int availableSlots = 3;
         parkingLot = new ParkingLot(availableSlots);
-        for (int i = 0; i < 2; i++) {
-            parkingLot.allocateParkingSlot(new Vehicle());
-        }
+
+        parkingLot.allocateParkingSlot(new Vehicle());
+        parkingLot.allocateParkingSlot(new Vehicle());
 
         Boolean isParkingLotFull = parkingLot.checkIfParkingLotIsFull();
 
         assertFalse(isParkingLotFull);
     }
 
-//    @Test
-//    void shouldNotifyOwnerWhenParkingLotIsFull() {
-//        ParkingLot parkingLot = new ParkingLot(1);
-//        Owner owner = new Owner();
-//        owner.setParkingLot(parkingLot);
-//        owner.subscribeToAParkingLot();
-//
-//        boolean isParked = parkingLot.park(new Vehicle());
-//
-//        assertTrue(isParked);
-//        assertTrue(owner.checkIfParkingLotIsFull());
-//
-//    }
+    @Test
+    void shouldNotifyOwnerWhenParkingLotIsFull() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Owner ownerSpy = Mockito.spy(new Owner());
+        ownerSpy.setParkingLot(parkingLot);
+        ownerSpy.subscribeToParkingLotSpace();
+        boolean isParked = parkingLot.allocateParkingSlot(new Vehicle());
 
-//    @Test
-//    void shouldNotNotifyOwnerWhenParkingLotIsFree() {
-//        ParkingLot parkingLot = new ParkingLot(2);
-//        Owner owner = new Owner();
-//        owner.setParkingLot(parkingLot);
-//        owner.subscribeToAParkingLot();
-//
-//        boolean isParked = parkingLot.park(new Vehicle());
-//
-//        assertTrue(isParked);
-//        assertFalse(owner.checkIfParkingLotIsFull());
-//    }
+        assertTrue(isParked);
+        verify(ownerSpy,times(1)).notifyParkingLotIsFull();
 
-//    @Test
-//    void notifySecurityPersonnalWhenLotIsFull() {
-//        ParkingLot parkingLot = new ParkingLot(1);
-//        SecurityPersonnel securityPersonnel = new SecurityPersonnel();
-//        securityPersonnel.setParkingLot(parkingLot);
-//        securityPersonnel.subscribeToAParkingLot();
-//
-//        boolean isParked = parkingLot.park(new Vehicle());
-//
-//        assertTrue(isParked);
-//        assertTrue(securityPersonnel.checkIfParkingLotIsFull());
-//    }
+    }
 
-//    @Test
-//    void notNotifySecurityPersonnalWhenLotIsFree() {
-//        ParkingLot parkingLot = new ParkingLot(2);
-//        SecurityPersonnel securityPersonnel = new SecurityPersonnel();
-//        securityPersonnel.setParkingLot(parkingLot);
-//        securityPersonnel.subscribeToAParkingLot();
-//
-//        boolean isParked = parkingLot.park(new Vehicle());
-//
-//        assertTrue(isParked);
-//        assertFalse(securityPersonnel.checkIfParkingLotIsFull());
-//    }
+    @Test
+    void shouldNotNotifyOwnerWhenParkingLotIsFull() {
+        ParkingLot parkingLot = new ParkingLot(2);
+        Owner ownerSpy = Mockito.spy(new Owner());
+        ownerSpy.setParkingLot(parkingLot);
+        ownerSpy.subscribeToParkingLotSpace();
+        boolean isParked = parkingLot.allocateParkingSlot(new Vehicle());
 
-//    @Test
-//    void notifyOwnerWhenSlotsAreBackAvailable() {
-//        ParkingLot parkingLot = new ParkingLot(1);
-//        Owner owner = new Owner();
-//        owner.setParkingLot(parkingLot);
-//        owner.subscribeToAParkingLot();
-//        Vehicle myCar = new Vehicle();
-//
-//        boolean isParked = parkingLot.park(myCar);
-//        boolean notifiedOwnerWhenLotIsFull = owner.checkIfParkingLotIsFull();
-//        boolean isUnParked = parkingLot.unPark(myCar);
-//        boolean notifiedOwnerWhenLotIsBackAvailable = owner.checkIfParkingLotIsAvailable();
-//
-//        assertTrue(isParked);
-//        assertTrue(notifiedOwnerWhenLotIsFull);
-//        assertTrue(isUnParked);
-//        assertTrue(notifiedOwnerWhenLotIsBackAvailable);
-//    }
+        assertTrue(isParked);
+        verify(ownerSpy,times(0)).notifyParkingLotIsFull();
 
-//    @Test
-//    void shouldParkTheCarInSecondLotWhenFirstLotIsFull() {
-//        int[] lotCapacities = {0,2};
-//        ParkingAttendant parkingAssistant = new ParkingAttendant(lotCapacities);
-//        Vehicle car = new Vehicle();
-//
-//        boolean isParked = parkingAssistant.parkByParkingAttendant(car);
-//
-//        assertTrue(isParked);
-//    }
+    }
+
+    @Test
+    void shouldNotifyOwnerWhenSlotsAreBackAvailable() {
+        ParkingLot parkingLot = new ParkingLot(2);
+        Owner ownerSpy = Mockito.spy(new Owner());
+        ownerSpy.setParkingLot(parkingLot);
+        ownerSpy.subscribeToParkingLotSpace();
+
+        Vehicle vehicle1 = new Vehicle();
+        boolean isParked = parkingLot.allocateParkingSlot(vehicle1);
+        Vehicle vehicle2 = new Vehicle();
+        boolean isSecondParked = parkingLot.allocateParkingSlot(vehicle2);
+        boolean isSecondUnparked = parkingLot.deallocateParkingSlot(vehicle1);
+
+        assertTrue(isParked);
+        assertTrue(isSecondParked);
+        assertTrue(isSecondUnparked);
+        verify(ownerSpy,times(1)).notifyParkingLotIsFull();
+        verify(ownerSpy,times(1)).notifyParkingLotIsBackAvailable();
+    }
+
+    @Test
+    void shouldNotifySecurityPersonalWhenLotIsFull() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Owner owner = new Owner();
+        owner.setParkingLot(parkingLot);
+        SecurityPersonnel securityPersonnelSpy = Mockito.spy(owner.associateToASecurityPersonnel());
+        securityPersonnelSpy.subscribeToParkingLotSpace();
+
+        Vehicle vehicle = new Vehicle();
+        boolean isParked = parkingLot.allocateParkingSlot(vehicle);
+
+        assertTrue(isParked);
+        verify(securityPersonnelSpy,times(1)).notifyParkingLotIsFull();
+
+    }
+
+    @Test
+    void shouldNotNotifySecurityPersonalWhenLotIsFree() {
+        ParkingLot parkingLot = new ParkingLot(2);
+        Owner owner = new Owner();
+        owner.setParkingLot(parkingLot);
+        SecurityPersonnel securityPersonnelSpy = Mockito.spy(owner.associateToASecurityPersonnel());
+        securityPersonnelSpy.subscribeToParkingLotSpace();
+
+        Vehicle vehicle = new Vehicle();
+        boolean isParked = parkingLot.allocateParkingSlot(vehicle);
+
+        assertTrue(isParked);
+        verify(securityPersonnelSpy,times(0)).notifyParkingLotIsFull();
+    }
 
     @Test
     void shouldParkTheCarInFirstLotWhenFirstLotIsAvailable() {
         int[] lotCapacities = {1,2};
 
-//        ParkingAttendant parkingAttendant = new ParkingAttendant(lotCapacities);
         Owner owner = new Owner();
         owner.initializeParkingLots(lotCapacities);
-        owner.subscribeToParkingLotSpace();
         ParkingAttendant parkingAttendant = owner.employNewParkingAttendant();
         Vehicle car = new Vehicle();
 
         boolean isParked = parkingAttendant.park(car);
-        boolean isSecondParked = parkingAttendant.park(car);
-        boolean isThirdParked = parkingAttendant.park(car);
 
         assertTrue(isParked);
-        assertTrue(isSecondParked);
-        assertTrue(isThirdParked);
     }
 
     @Test
-    void shouldParkTheCarInFirstLotWhenFirstLotIsAvailableWithSecurity() {
+    void shouldParkTheCarInSecondLotWhenFirstLotIsNotAvailable() {
         int[] lotCapacities = {1,2};
+
         Owner owner = new Owner();
-        SecurityPersonnel securityPersonnel = owner.associateToASecurityPersonnel();
         owner.initializeParkingLots(lotCapacities);
-        owner.subscribeToParkingLotSpace();
-        securityPersonnel.subscribeToParkingLotSpace();
         ParkingAttendant parkingAttendant = owner.employNewParkingAttendant();
         Vehicle car = new Vehicle();
 
@@ -203,10 +190,8 @@ public class ParkingLotTest {
     void shouldUnParkTheCarAfterItIsParked() {
         int[] lotCapacities = {1,2};
         Owner owner = new Owner();
-        SecurityPersonnel securityPersonnel = owner.associateToASecurityPersonnel();
         owner.initializeParkingLots(lotCapacities);
-        owner.subscribeToParkingLotSpace();
-        securityPersonnel.subscribeToParkingLotSpace();
+
         ParkingAttendant parkingAttendant = owner.employNewParkingAttendant();
         Vehicle car = new Vehicle();
 
@@ -221,10 +206,8 @@ public class ParkingLotTest {
     void shouldNotUnparkTheCarAfterItIsUnParked() {
         int[] lotCapacities = {1,2};
         Owner owner = new Owner();
-        SecurityPersonnel securityPersonnel = owner.associateToASecurityPersonnel();
         owner.initializeParkingLots(lotCapacities);
-        owner.subscribeToParkingLotSpace();
-        securityPersonnel.subscribeToParkingLotSpace();
+
         ParkingAttendant parkingAttendant = owner.employNewParkingAttendant();
         Vehicle car = new Vehicle();
 

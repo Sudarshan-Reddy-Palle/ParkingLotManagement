@@ -23,10 +23,14 @@ public class Owner implements ParkingLotObserver {
         for(ParkingLot parkingLot:parkingLots)
         parkingLot.subscribeToParkingLotObserversList(this);
     }
+
     public ParkingAttendant employNewParkingAttendant() {
         return this.parkingAttendant = new ParkingAttendant(parkingLots);
     }
     public SecurityPersonnel associateToASecurityPersonnel(){
         return this.securityPersonnel = new SecurityPersonnel(parkingLots);
+    }
+    public void setParkingLot(ParkingLot parkingLot) {
+        parkingLots.add(parkingLot);
     }
 }
