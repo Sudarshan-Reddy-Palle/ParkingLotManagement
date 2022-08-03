@@ -1,4 +1,4 @@
-interface Observer {
+interface ParkingLotObserver {
     void notifyParkingLotIsFull();
 
     void notifyParkingLotIsBackAvailable();
