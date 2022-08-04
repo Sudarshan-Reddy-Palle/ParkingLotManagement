@@ -2,12 +2,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingLot {
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public int getParkingSlotsAvailable() {
+        return parkingSlotsAvailable;
+    }
+
     int parkingSlotsAvailable;
     List<Vehicle> parkingSlots = new ArrayList<>();
     private List<ParkingLotObserver> parkingLotObserversList = new ArrayList<ParkingLotObserver>();
+
     ParkingLot(int totalSlots)
     {
         this.parkingSlotsAvailable = totalSlots;
+    }
+    ParkingLot(int totalSlots,int id)
+    {
+        this.parkingSlotsAvailable = totalSlots;
+        this.id=id;
     }
     public void subscribeToParkingLotObserversList(ParkingLotObserver parkingLotObserver){
         parkingLotObserversList.add(parkingLotObserver);

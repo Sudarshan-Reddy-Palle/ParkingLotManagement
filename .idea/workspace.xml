@@ -5,15 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3e31e75-9d6d-421a-bd8a-6ce98c7359f8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/Owner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingAttendant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingAttendant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingLot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingLot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingLotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingLotTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,10 +47,50 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "full.screen.before.presentation.mode": "false",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ParkingLotTest">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.ParkingAttendantTest">
+    <configuration name="ParkingAttendantTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ParkingLotManagement" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ParkingAttendantTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParkingAttendantTest.parkRandomly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ParkingLotManagement" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ParkingAttendantTest" />
+      <option name="METHOD_NAME" value="parkRandomly" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParkingAttendantTest.shouldParkFourConsecutiveCarsInFourDifferentParkingLots" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ParkingLotManagement" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ParkingAttendantTest" />
+      <option name="METHOD_NAME" value="shouldParkFourConsecutiveCarsInFourDifferentParkingLots" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ParkingLotTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParkingLotManagement" />
       <option name="PACKAGE_NAME" value="" />
@@ -51,41 +100,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParkingLotTest.notifySecurityPersonalWhenLotIsFull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ParkingLotTest.shouldParkTheCarWhenSlotIsAvailable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParkingLotManagement" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ParkingLotTest" />
-      <option name="METHOD_NAME" value="notifySecurityPersonalWhenLotIsFull" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParkingLotTest.shouldNotNotifyOwnerWhenParkingLotIsFree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParkingLotManagement" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParkingLotTest" />
-      <option name="METHOD_NAME" value="shouldNotNotifyOwnerWhenParkingLotIsFree" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParkingLotTest.shouldNotNotifyOwnerWhenParkingLotIsFull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParkingLotManagement" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParkingLotTest" />
-      <option name="METHOD_NAME" value="shouldNotNotifyOwnerWhenParkingLotIsFull" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParkingLotTest.shouldNotNotifySecurityPersonalWhenLotIsFree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParkingLotManagement" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParkingLotTest" />
-      <option name="METHOD_NAME" value="shouldNotNotifySecurityPersonalWhenLotIsFree" />
+      <option name="METHOD_NAME" value="shouldParkTheCarWhenSlotIsAvailable" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -93,11 +112,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ParkingAttendantTest" />
+        <item itemvalue="JUnit.ParkingAttendantTest.parkRandomly" />
+        <item itemvalue="JUnit.ParkingAttendantTest.shouldParkFourConsecutiveCarsInFourDifferentParkingLots" />
         <item itemvalue="JUnit.ParkingLotTest" />
-        <item itemvalue="JUnit.ParkingLotTest.shouldNotNotifySecurityPersonalWhenLotIsFree" />
-        <item itemvalue="JUnit.ParkingLotTest.notifySecurityPersonalWhenLotIsFull" />
-        <item itemvalue="JUnit.ParkingLotTest.shouldNotNotifyOwnerWhenParkingLotIsFull" />
-        <item itemvalue="JUnit.ParkingLotTest.shouldNotNotifyOwnerWhenParkingLotIsFree" />
+        <item itemvalue="JUnit.ParkingLotTest.shouldParkTheCarWhenSlotIsAvailable" />
       </list>
     </recent_temporary>
   </component>
@@ -122,34 +141,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingLotTest.java</url>
-          <line>106</line>
-          <properties class="ParkingLotTest" method="shouldNotifyOwnerWhenSlotsAreBackAvailable">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingLotTest.java</url>
-          <line>80</line>
-          <properties class="ParkingLotTest" method="shouldNotifyOwnerWhenParkingLotIsFull">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingLot.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

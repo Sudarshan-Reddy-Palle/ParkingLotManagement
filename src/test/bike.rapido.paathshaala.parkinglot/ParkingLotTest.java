@@ -79,19 +79,20 @@ public class ParkingLotTest {
 
     @Test
     void shouldNotifyOwnerWhenParkingLotIsFull() {
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(2);
         Owner ownerSpy = Mockito.spy(new Owner());
         ownerSpy.setParkingLot(parkingLot);
         ownerSpy.subscribeToParkingLotSpace();
         boolean isParked = parkingLot.allocateParkingSlot(new Vehicle());
+        parkingLot.allocateParkingSlot(new Vehicle());
 
         assertTrue(isParked);
+        System.out.println("before verify");
         verify(ownerSpy,times(1)).notifyParkingLotIsFull();
-
     }
 
     @Test
-    void shouldNotNotifyOwnerWhenParkingLotIsFull() {
+    void shouldNotNotifyOwnerWhenParkingLotIsNotFull() {
         ParkingLot parkingLot = new ParkingLot(2);
         Owner ownerSpy = Mockito.spy(new Owner());
         ownerSpy.setParkingLot(parkingLot);
@@ -100,7 +101,6 @@ public class ParkingLotTest {
 
         assertTrue(isParked);
         verify(ownerSpy,times(0)).notifyParkingLotIsFull();
-
     }
 
     @Test
@@ -109,7 +109,6 @@ public class ParkingLotTest {
         Owner ownerSpy = Mockito.spy(new Owner());
         ownerSpy.setParkingLot(parkingLot);
         ownerSpy.subscribeToParkingLotSpace();
-
         Vehicle vehicle1 = new Vehicle();
         boolean isParked = parkingLot.allocateParkingSlot(vehicle1);
         Vehicle vehicle2 = new Vehicle();
@@ -154,70 +153,6 @@ public class ParkingLotTest {
         verify(securityPersonnelSpy,times(0)).notifyParkingLotIsFull();
     }
 
-    @Test
-    void shouldParkTheCarInFirstLotWhenFirstLotIsAvailable() {
-        int[] lotCapacities = {1,2};
 
-        Owner owner = new Owner();
-        owner.initializeParkingLots(lotCapacities);
-        ParkingAttendant parkingAttendant = owner.employNewParkingAttendant();
-        Vehicle car = new Vehicle();
-
-        boolean isParked = parkingAttendant.park(car);
-
-        assertTrue(isParked);
-    }
-
-    @Test
-    void shouldParkTheCarInSecondLotWhenFirstLotIsNotAvailable() {
-        int[] lotCapacities = {1,2};
-
-        Owner owner = new Owner();
-        owner.initializeParkingLots(lotCapacities);
-        ParkingAttendant parkingAttendant = owner.employNewParkingAttendant();
-        Vehicle car = new Vehicle();
-
-        boolean isParked = parkingAttendant.park(car);
-        boolean isSecondParked = parkingAttendant.park(car);
-        boolean isThirdParked = parkingAttendant.park(car);
-
-        assertTrue(isParked);
-        assertTrue(isSecondParked);
-        assertTrue(isThirdParked);
-    }
-
-    @Test
-    void shouldUnParkTheCarAfterItIsParked() {
-        int[] lotCapacities = {1,2};
-        Owner owner = new Owner();
-        owner.initializeParkingLots(lotCapacities);
-
-        ParkingAttendant parkingAttendant = owner.employNewParkingAttendant();
-        Vehicle car = new Vehicle();
-
-        boolean isParked = parkingAttendant.park(car);
-        boolean isUnParked = parkingAttendant.unpark(car);
-
-        assertTrue(isParked);
-        assertTrue(isUnParked);
-    }
-
-    @Test
-    void shouldNotUnparkTheCarAfterItIsUnParked() {
-        int[] lotCapacities = {1,2};
-        Owner owner = new Owner();
-        owner.initializeParkingLots(lotCapacities);
-
-        ParkingAttendant parkingAttendant = owner.employNewParkingAttendant();
-        Vehicle car = new Vehicle();
-
-        boolean isParked = parkingAttendant.park(car);
-        boolean isUnParked = parkingAttendant.unpark(car);
-        boolean isUnParkedTwice = parkingAttendant.unpark(car);
-
-        assertTrue(isParked);
-        assertTrue(isUnParked);
-        assertFalse(isUnParkedTwice);
-    }
 }
 

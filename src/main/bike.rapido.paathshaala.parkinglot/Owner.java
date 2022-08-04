@@ -6,9 +6,10 @@ public class Owner implements ParkingLotObserver {
     ParkingAttendant parkingAttendant ;
     SecurityPersonnel securityPersonnel;
 
-    public void initializeParkingLots(int[] capacitiesOfParkingLots ){
+    public void createParkingLots(int[] capacitiesOfParkingLots ){
+        int i=1;
         for(int capacityOfParkingLot: capacitiesOfParkingLots){
-            parkingLots.add(new ParkingLot(capacityOfParkingLot));
+            parkingLots.add(new ParkingLot(capacityOfParkingLot,i++));
         }
     }
     @Override
