@@ -110,12 +110,12 @@ public class ParkingLotTest {
         ownerSpy.setParkingLot(parkingLot);
         ownerSpy.subscribeToParkingLotSpace();
         Vehicle vehicle1 = new Vehicle();
-        boolean isParked = parkingLot.allocateParkingSlot(vehicle1);
         Vehicle vehicle2 = new Vehicle();
+        boolean isFirstParked = parkingLot.allocateParkingSlot(vehicle1);
         boolean isSecondParked = parkingLot.allocateParkingSlot(vehicle2);
         boolean isSecondUnparked = parkingLot.deallocateParkingSlot(vehicle1);
 
-        assertTrue(isParked);
+        assertTrue(isFirstParked);
         assertTrue(isSecondParked);
         assertTrue(isSecondUnparked);
         verify(ownerSpy,times(1)).notifyParkingLotIsFull();

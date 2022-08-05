@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3e31e75-9d6d-421a-bd8a-6ce98c7359f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/Owner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingAttendant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingAttendant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingLot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingLot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingLotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingLotTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +26,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/Owner.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingAttendant.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingLot.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingLotObserver.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/SecurityPersonnel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingLotTest.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -43,16 +51,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "full.screen.before.presentation.mode": "false",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -81,11 +89,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParkingAttendantTest.shouldParkFourConsecutiveCarsInFourDifferentParkingLots" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ParkingAttendantTest.shouldParkCarsFollowingUniformDistribution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParkingLotManagement" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ParkingAttendantTest" />
-      <option name="METHOD_NAME" value="shouldParkFourConsecutiveCarsInFourDifferentParkingLots" />
+      <option name="METHOD_NAME" value="shouldParkCarsFollowingUniformDistribution" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParkingAttendantTest.shouldParkTheCarInFirstAndSecondLotUniformly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ParkingLotManagement" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ParkingAttendantTest" />
+      <option name="METHOD_NAME" value="shouldParkTheCarInFirstAndSecondLotUniformly" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -100,23 +118,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParkingLotTest.shouldParkTheCarWhenSlotIsAvailable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParkingLotManagement" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParkingLotTest" />
-      <option name="METHOD_NAME" value="shouldParkTheCarWhenSlotIsAvailable" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ParkingAttendantTest" />
-        <item itemvalue="JUnit.ParkingAttendantTest.parkRandomly" />
-        <item itemvalue="JUnit.ParkingAttendantTest.shouldParkFourConsecutiveCarsInFourDifferentParkingLots" />
+        <item itemvalue="JUnit.ParkingAttendantTest.shouldParkTheCarInFirstAndSecondLotUniformly" />
+        <item itemvalue="JUnit.ParkingAttendantTest.shouldParkCarsFollowingUniformDistribution" />
         <item itemvalue="JUnit.ParkingLotTest" />
-        <item itemvalue="JUnit.ParkingLotTest.shouldParkTheCarWhenSlotIsAvailable" />
+        <item itemvalue="JUnit.ParkingAttendantTest.parkRandomly" />
       </list>
     </recent_temporary>
   </component>

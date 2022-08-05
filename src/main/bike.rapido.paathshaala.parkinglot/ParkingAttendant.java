@@ -1,27 +1,39 @@
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class ParkingAttendant {
-    List<ParkingLot> parkingLots = new ArrayList<>();
-    List<Vehicle> parkedCars = new ArrayList<>();
-    ParkingLotsCompare parkingLotsCompare = new ParkingLotsCompare();
+    List<ParkingLot> parkingLots;
+    List<Vehicle> parkedCars;
     ParkingAttendant(List<ParkingLot> parkingLots)
     {
         this.parkingLots = parkingLots;
+        this.parkedCars = new ArrayList<>();
     }
     public ParkingLot park(Vehicle vehicle) {
         if(!parkedCars.contains(vehicle)) {
             parkedCars.add(vehicle);
-            Collections.sort(parkingLots, parkingLotsCompare);
-
-            for (ParkingLot parkingLot : parkingLots) {
-                if (!parkingLot.checkIfParkingLotIsFull()) {
-                    parkingLot.allocateParkingSlot(vehicle);
-                    return parkingLot;
-                }
+            ParkingLot parkingLot = identifyLotWithMaximumAvailableSlots();
+            if(parkingLot != null)
+            {
+                parkingLot.allocateParkingSlot(vehicle);
+                return parkingLot;
             }
+
         }
         return null;
+    }
+
+    private ParkingLot identifyLotWithMaximumAvailableSlots() {
+        ParkingLot maxAvailableSlotedLot = null;
+        int maxAvailableSlotSize = 0;
+        for (ParkingLot parkingLot:parkingLots)
+        {
+            if(maxAvailableSlotSize<parkingLot.getParkingSlotsAvailable())
+            {
+                maxAvailableSlotSize = parkingLot.getParkingSlotsAvailable();
+                maxAvailableSlotedLot = parkingLot;
+            }
+        }
+        return maxAvailableSlotedLot;
     }
 
     public ParkingLot unpark(Vehicle vehicle) {
@@ -37,12 +49,4 @@ public class ParkingAttendant {
         return null;
     }
 }
-class ParkingLotsCompare implements Comparator<ParkingLot>
-{
-    public int compare(ParkingLot parkingLot1, ParkingLot parkingLot2)
-    {
-        if (parkingLot1.getParkingSlotsAvailable() < parkingLot2.getParkingSlotsAvailable()) return 1;
-        if (parkingLot1.getParkingSlotsAvailable() > parkingLot2.getParkingSlotsAvailable()) return -1;
-        else return 0;
-    }
-}
+
