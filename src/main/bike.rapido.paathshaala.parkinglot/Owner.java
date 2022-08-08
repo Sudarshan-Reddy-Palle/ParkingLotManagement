@@ -24,9 +24,8 @@ public class Owner implements ParkingLotObserver {
         for(ParkingLot parkingLot:parkingLots)
         parkingLot.subscribeToParkingLotObserversList(this);
     }
-
-    public ParkingAttendant employNewParkingAttendant() {
-        return this.parkingAttendant = new ParkingAttendant(parkingLots);
+    public ParkingAttendant assignParkingStrategyToParkingAttendant(String parkingStrategy) {
+        return this.parkingAttendant = new ParkingAttendant(parkingLots, parkingStrategy);
     }
     public SecurityPersonnel associateToASecurityPersonnel(){
         return this.securityPersonnel = new SecurityPersonnel(parkingLots);

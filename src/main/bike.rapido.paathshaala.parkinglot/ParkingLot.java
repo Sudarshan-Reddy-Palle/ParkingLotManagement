@@ -3,11 +3,9 @@ import java.util.List;
 
 public class ParkingLot {
     private int id;
-
     public int getId() {
         return id;
     }
-
     public int getParkingSlotsAvailable() {
         return parkingSlotsAvailable;
     }
