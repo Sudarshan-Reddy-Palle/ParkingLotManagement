@@ -89,5 +89,36 @@ class ParkingAttendantWithEvenlyDistributedParkingStrategyTest {
         assertEquals(4,fourthCarParkedLot.getId());
     }
 
+    @Test
+    void shouldParkCarsAccordingToStrategyChange() {
+        int[] lotCapacities = {3,3,3,3};
+        Owner owner = new Owner();
+        owner.createParkingLots(lotCapacities);
+        List<ParkingLot> parkingLots = owner.getParkingLots();
+        ParkingAttendant parkingAttendant = new ParkingAttendant(parkingLots);
+        ParkingStrategy parkingStrategy = new EvenlyDistributedParkingStrategy(parkingLots);
+        parkingAttendant.setParkingStrategy(parkingStrategy);
+        Vehicle car1 = new Vehicle();
+        Vehicle car2 = new Vehicle();
+        Vehicle car3 = new Vehicle();
+        Vehicle car4 = new Vehicle();
+        Vehicle car5 = new Vehicle();
+        Vehicle car6 = new Vehicle();
 
+        ParkingLot firstCarParkedLot = parkingAttendant.park(car1);
+        ParkingLot secondCarParkedLot = parkingAttendant.park(car2);
+        ParkingLot thirdCarParkedLot = parkingAttendant.park(car3);
+        ParkingLot fourthCarParkedLot = parkingAttendant.park(car4);
+        parkingStrategy = new FirstFreeLotParkingStrategy(parkingLots);
+        parkingAttendant.setParkingStrategy(parkingStrategy);
+        ParkingLot fifthCarParkedLot = parkingAttendant.park(car5);
+        ParkingLot sixthCarParkedLot = parkingAttendant.park(car6);
+
+        assertEquals(1,firstCarParkedLot.getId());
+        assertEquals(2,secondCarParkedLot.getId());
+        assertEquals(3,thirdCarParkedLot.getId());
+        assertEquals(4,fourthCarParkedLot.getId());
+        assertEquals(1,fifthCarParkedLot.getId());
+        assertEquals(1,sixthCarParkedLot.getId());
+    }
 }
