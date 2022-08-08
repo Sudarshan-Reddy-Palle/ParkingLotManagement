@@ -1,9 +1,11 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ParkingAttendantWithUntilLotFullStrategyTest {
+public class ParkingAttendantWithFirstFreeLotStrategyTest {
     private Owner owner;
 
     @BeforeEach
@@ -13,9 +15,13 @@ public class ParkingAttendantWithUntilLotFullStrategyTest {
 
     @Test
     void shouldParkCarsInSlotOneWithUntilLotFullStrategy() {
-        int[] lotCapacities = {2,2};
+        int[] lotCapacities = {3,3,3,3};
+        Owner owner = new Owner();
         owner.createParkingLots(lotCapacities);
-        ParkingAttendant parkingAttendant = owner.assignParkingStrategyToParkingAttendant("UntilLotFull");
+        List<ParkingLot> parkingLots = owner.getParkingLots();
+        ParkingAttendant parkingAttendant = new ParkingAttendant(parkingLots);
+        ParkingStrategy parkingStrategy = new FirstFreeLotParkingStrategy(parkingLots);
+        parkingAttendant.setParkingStrategy(parkingStrategy);
         Vehicle firstCar = new Vehicle();
         Vehicle secondCar = new Vehicle();
         ParkingLot parkedParkingLotOfFirstCar = parkingAttendant.park(firstCar);

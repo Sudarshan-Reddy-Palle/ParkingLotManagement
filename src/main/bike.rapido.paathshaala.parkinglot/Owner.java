@@ -6,6 +6,14 @@ public class Owner implements ParkingLotObserver {
     ParkingAttendant parkingAttendant ;
     SecurityPersonnel securityPersonnel;
 
+    public List<ParkingLot> getParkingLots() {
+        return parkingLots;
+    }
+
+    public void setParkingLots(List<ParkingLot> parkingLots) {
+        this.parkingLots = parkingLots;
+    }
+
     public void createParkingLots(int[] capacitiesOfParkingLots ){
         int i=1;
         for(int capacityOfParkingLot: capacitiesOfParkingLots){
@@ -23,9 +31,6 @@ public class Owner implements ParkingLotObserver {
     public void subscribeToParkingLotSpace(){
         for(ParkingLot parkingLot:parkingLots)
         parkingLot.subscribeToParkingLotObserversList(this);
-    }
-    public ParkingAttendant assignParkingStrategyToParkingAttendant(String parkingStrategy) {
-        return this.parkingAttendant = new ParkingAttendant(parkingLots, parkingStrategy);
     }
     public SecurityPersonnel associateToASecurityPersonnel(){
         return this.securityPersonnel = new SecurityPersonnel(parkingLots);
