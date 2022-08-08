@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -24,11 +25,11 @@ public class ParkingAttendantWithFirstFreeLotStrategyTest {
         parkingAttendant.setParkingStrategy(parkingStrategy);
         Vehicle firstCar = new Vehicle();
         Vehicle secondCar = new Vehicle();
-        ParkingLot parkedParkingLotOfFirstCar = parkingAttendant.park(firstCar);
-        ParkingLot parkedParkingLotOfSecondCar = parkingAttendant.park(secondCar);
+        Optional<ParkingLot> parkedParkingLotOfFirstCar = parkingAttendant.park(firstCar);
+        Optional<ParkingLot> parkedParkingLotOfSecondCar = parkingAttendant.park(secondCar);
 
-        assertEquals(1,parkedParkingLotOfFirstCar.getId());
-        assertEquals(1,parkedParkingLotOfSecondCar.getId());
+        assertEquals(1,parkedParkingLotOfFirstCar.get().getId());
+        assertEquals(1,parkedParkingLotOfSecondCar.get().getId());
 
     }
 

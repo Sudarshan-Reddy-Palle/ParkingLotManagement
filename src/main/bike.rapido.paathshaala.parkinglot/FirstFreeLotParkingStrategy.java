@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Optional;
 
 public class FirstFreeLotParkingStrategy implements ParkingStrategy{
     private List<ParkingLot> parkingLots;

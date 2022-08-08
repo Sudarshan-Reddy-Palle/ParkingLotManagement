@@ -18,31 +18,31 @@ public class ParkingAttendant {
         this.parkingStrategy = parkingStrategy;
     }
 
-    public ParkingLot park(Vehicle vehicle) {
+    public Optional<ParkingLot> park(Vehicle vehicle) {
         if(!parkedCars.contains(vehicle)) {
             parkedCars.add(vehicle);
             ParkingLot parkingLot = parkingStrategy.getParkingLot();
             if(parkingLot != null)
             {
                 parkingLot.allocateParkingSlot(vehicle);
-                return parkingLot;
+                return Optional.of(parkingLot);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
 
-    public ParkingLot unpark(Vehicle vehicle) {
+    public Optional<ParkingLot> unpark(Vehicle vehicle) {
         if(parkedCars.contains(vehicle)) {
             parkedCars.remove(vehicle);
             for (ParkingLot parkingLot : parkingLots) {
                 if (parkingLot.parkingSlots.contains(vehicle)) {
                     parkingLot.deallocateParkingSlot(vehicle);
-                    return parkingLot;
+                    return Optional.of(parkingLot);
                 }
             }
         }
-        return null;
+        return Optional.empty();
     }
 }
 
