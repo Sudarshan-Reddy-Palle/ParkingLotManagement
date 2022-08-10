@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b3e31e75-9d6d-421a-bd8a-6ce98c7359f8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/FirstFreeLotParkingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/FirstFreeLotParkingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/Owner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingAttendant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bike.rapido.paathshaala.parkinglot/ParkingAttendant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantWithEvenlyDistributionStrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantWithEvenlyDistributedParkingStrategyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantWithUntilLotFullStrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantWithUntilLotFullStrategyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +69,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ParkingAttendantWithUntilLotFullStrategyTest.shouldParkCarsInSlotOneWithUntilLotFullStrategy">
+  <component name="RunManager" selected="JUnit.ParkingAttendantWithFirstFreeLotStrategyTest.shouldParkCarsInSlotOneWithUntilLotFullStrategy">
     <configuration name="ParkingAttendantWithEvenlyDistributedParkingStrategyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParkingLotManagement" />
       <option name="PACKAGE_NAME" value="" />
@@ -104,20 +99,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParkingAttendantWithUntilLotFullStrategyTest.shouldParkCarsInSlotOneWithUntilLotFullStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ParkingAttendantWithFirstFreeLotStrategyTest.shouldParkCarsInSlotOneWithUntilLotFullStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParkingLotManagement" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParkingAttendantWithUntilLotFullStrategyTest" />
+      <option name="MAIN_CLASS_NAME" value="ParkingAttendantWithFirstFreeLotStrategyTest" />
       <option name="METHOD_NAME" value="shouldParkCarsInSlotOneWithUntilLotFullStrategy" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParkingAttendantWithUntilLotFullStrategyTest.shouldParkCarsUntilLotFullStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ParkingAttendantWithFirstFreeLotStrategyTest.shouldParkCarsUntilLotFullStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParkingLotManagement" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParkingAttendantWithUntilLotFullStrategyTest" />
+      <option name="MAIN_CLASS_NAME" value="ParkingAttendantWithFirstFreeLotStrategyTest" />
       <option name="METHOD_NAME" value="shouldParkCarsUntilLotFullStrategy" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -126,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ParkingAttendantWithUntilLotFullStrategyTest.shouldParkCarsInSlotOneWithUntilLotFullStrategy" />
+        <item itemvalue="JUnit.ParkingAttendantWithFirstFreeLotStrategyTest.shouldParkCarsInSlotOneWithUntilLotFullStrategy" />
         <item itemvalue="JUnit.ParkingAttendantWithEvenlyDistributedParkingStrategyTest" />
         <item itemvalue="JUnit.ParkingAttendantWithEvenlyDistributedParkingStrategyTest.shouldParkFourConsecutiveCarsInFourDifferentParkingLots" />
         <item itemvalue="JUnit.ParkingAttendantWithEvenlyDistributedParkingStrategyTest.shouldParkTheCarInFirstAndSecondLotUniformly" />
-        <item itemvalue="JUnit.ParkingAttendantWithUntilLotFullStrategyTest.shouldParkCarsUntilLotFullStrategy" />
+        <item itemvalue="JUnit.ParkingAttendantWithFirstFreeLotStrategyTest.shouldParkCarsUntilLotFullStrategy" />
       </list>
     </recent_temporary>
   </component>
@@ -160,9 +155,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantWithUntilLotFullStrategyTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantWithFirstFreeLotStrategyTest.java</url>
           <line>15</line>
-          <properties class="ParkingAttendantWithUntilLotFullStrategyTest" method="shouldParkCarsInSlotOneWithUntilLotFullStrategy">
+          <properties class="ParkingAttendantWithFirstFreeLotStrategyTest" method="shouldParkCarsInSlotOneWithUntilLotFullStrategy">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -170,7 +165,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantWithEvenlyDistributedParkingStrategyTest.java</url>
-          <line>15</line>
+          <line>16</line>
           <properties class="ParkingAttendantWithEvenlyDistributedParkingStrategyTest" method="shouldParkTheCarInFirstAndSecondLotUniformly">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -179,7 +174,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/bike.rapido.paathshaala.parkinglot/ParkingAttendantWithEvenlyDistributedParkingStrategyTest.java</url>
-          <line>68</line>
+          <line>69</line>
           <properties class="ParkingAttendantWithEvenlyDistributedParkingStrategyTest" method="shouldParkFourConsecutiveCarsInFourDifferentParkingLots">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
